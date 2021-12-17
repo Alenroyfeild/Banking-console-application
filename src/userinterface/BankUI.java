@@ -158,6 +158,7 @@ public class BankUI {
         return -1;
     }
 
+    //this function is used to create Loan Account
     public Loan createLoanAccUI(Loan loans[], Account accounts[], long accountNumber, Scanner keyboard) {
         System.out.println("You applied for loan wait for responce...");
         Loan lao = null;
@@ -170,6 +171,7 @@ public class BankUI {
         return lao;
     }
 
+    //this function is used to create CIF
     public CIF docreateCIFUI(CIF cifs[], long adharno) {
         System.out.print("Enter username      :");
         String username = keyboard.next();
@@ -205,16 +207,19 @@ public class BankUI {
             System.out.println("invalid user account number....");
     }
 
+    //this function is used to get adhar number from user
     public long getAdharno(Scanner keybord) {
         long adharno = LoginUtilities.getAdharno(keyboard);
         return adharno;
     }
 
+    //this function is used to get Account number from user
     public long getAccNumber(Scanner keyboard) {
         long accountNumber = LoginUtilities.getAccNumber(keyboard);
         return accountNumber;
     }
 
+    //this function is used to create Account
     public Account createAccountUI(CIF cifs[], int cifindex, Account accounts[], Scanner keyboard) {
         String accType = accountMenu(keyboard);
         System.out.print("Enter the password  :");
@@ -305,7 +310,7 @@ public class BankUI {
                     System.out.print("Enter Age           :");
                     age = Integer.parseInt(keyboard.next());
                 } catch (Exception e) {
-                    System.out.println("entered  is not a valid integer number");
+                    System.out.println("\nentered  is not a valid integer number\n Enter age :");
                     age = 0;
                 }
             } while (age == 0);

@@ -2,8 +2,8 @@ package src.entities;
 
 import java.util.ArrayList;
 
-// CIF means Customer Informatiion File.
-//This consits all information about the user.This is unique for each user.
+// CIF means Customer Information File.
+//This consits all information about the user.This CIF no which is  unique for each user.
 public class CIF {
     public static int cifindex = 2;
     private String username;

@@ -12,6 +12,7 @@ import src.utils.LoginUtilities;
 public class FixedDepositServicesUI {
     FixedDepositServices fds = new FixedDepositServices();
 
+    //this function is used to apply FD account after checking Account number in the FD accounts list
     public void applyFDAccountUI(FixedDeposit fd[], Account accounts[], long accountNumber, int index, int findex,
             double amount,
             Scanner keyboard) {
@@ -41,6 +42,7 @@ public class FixedDepositServicesUI {
         System.out.printf("Account remaining Balance: %.2f\n", accounts[index].getBalance());
     }
 
+    //this function is used to get FD mons from the user
     public int getMons(Scanner keyboard) {
         int mons = 0;
         do {
@@ -98,6 +100,7 @@ public class FixedDepositServicesUI {
         return -1;
     }
 
+    //this function is used to withdraw FD amount by checking the duration mons from FD account opening
     public void withdrawFDAmountUI(FixedDeposit fd[], int findex, long accountNumber, Account accounts[], int index,
             Scanner keyboard) {
 

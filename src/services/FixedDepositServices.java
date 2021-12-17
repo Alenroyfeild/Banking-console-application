@@ -8,8 +8,6 @@ import src.entities.*;
 
 public class FixedDepositServices {
 
-    // FixedDepositServicesUI fdsi = new FixedDepositServicesUI();
-
     // this function is used to get interest amount from fixed deposit loan Amount
     // and no.of days between last withdraw to today
     public void getInterestAmt(FixedDeposit fd[], int findex) {
@@ -54,24 +52,6 @@ public class FixedDepositServices {
         return amt;
     }
 
-    // this function is used to check balance is available in Fixed deposit Account
-    // public double checkFDAmount(FixedDeposit fd[], int findex, Scanner keyboard)
-    // {
-    // int x = 0;
-    // do {
-    // double amt = LoginUtilities.getAmount(keyboard);
-    // if (amt >= 0) {
-    // if (amt <= (fd[findex].fdAmount + fd[findex].interestAmount)) {
-    // x = 0;
-    // return amt;
-    // } else
-    // LoginUtilities.print("You have not sufficient Amount....");
-    // } else
-    // LoginUtilities.print("Amount must be greater than 0...");
-    // x = 1;
-    // } while (x == 1);
-    // return 0;
-    // }
 
     // this function is used to search the Account number in the accounts
     public int searchFDAcc(FixedDeposit fd[], int count, long accountNumber) {
@@ -121,7 +101,6 @@ public class FixedDepositServices {
                 fd[findex].available = false;
                 fd[findex].fdAmount = 0;
                 fd[findex].interestAmount = 0;
-                // getFDBalances(fd, findex, accounts, index);
             }
 
         } else {
@@ -136,7 +115,6 @@ public class FixedDepositServices {
                 fd[findex].available = false;
                 fd[findex].fdAmount = 0;
                 fd[findex].interestAmount = 0;
-                // getFDBalances(fd, findex, accounts, index);
             }
 
         }

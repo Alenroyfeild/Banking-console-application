@@ -5,6 +5,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 import src.entities.*;
+import src.utils.LoginUtilities;
+import src.utils.Utilties;
 
 public class LoanServices {
     // this function is used to search the loan Account
@@ -15,6 +17,17 @@ public class LoanServices {
         return -1;
     }
 
+    //this function is used to autoPay EMI from user Account
+    public static void autoPayLoanEMI(Account accounts[], long accountNumber, Loan loans[]) {
+        Utilties ut = Utilties.getInstance();
+        LoanServices lo = new LoanServices();
+        int index = LoginUtilities.searchAccount(accounts, ut.numAccounts, accountNumber);
+        int lindex = lo.searchloanAcc(loans, Loan.loanindex, accountNumber);
+        if (lindex >= 0) {
+            double lamount = loans[lindex].loanAmount;
+            lo.updateEMI(loans, accounts, accountNumber, lindex, index, lamount);
+        }
+    }
     // this function is used to pay the loan EMI Amount automatically
 
     public void updateEMI(Loan loans[], Account accounts[], long accountNumber, int lindex, int index, double lamount) {
@@ -85,6 +98,7 @@ public class LoanServices {
         }
     }
 
+    //this function is used to get loan Amount and remaining interest amount
     public double[] getLoanBalance(Loan loans[],int lindex,double lamount){
         double arr[]=new double[2];
         int remainMons = loans[lindex].monthsRemain;

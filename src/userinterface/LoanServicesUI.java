@@ -31,6 +31,7 @@ public class LoanServicesUI {
         System.out.format("Account balance         : %.2f\n", Math.round(accounts[count].getBalance()));
     }
 
+    //this function is used to apply loan account by getting the requuired details
     public int[] applyLoanAccount(Account accounts[], int count, long accountNumber, Scanner keyboard) {
         int index = LoginUtilities.searchAccount(accounts, count, accountNumber);
         double amount;
@@ -146,6 +147,7 @@ public class LoanServicesUI {
         return -1;
     }
 
+    //this function is used to pay the loan Amount 
     public void payLoanAmount(Loan loans[], Account accounts[], long accountNumber, int lindex, int index,
             double lamount,
             Scanner keyboard) {

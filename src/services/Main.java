@@ -61,9 +61,9 @@ public class Main {
     }
 
     // displays bank menu list
-    public static int menu(CIF cifs[], int cifindex, Account accounts[], long accountNumber, int index,
+    public static int menu(CIF cifs[], int cifindex, Account accounts[],Loan loans[], long accountNumber, int index,
             Scanner keyboard) {
-        Notifications.displayNotificationList(cifs, cifindex, accounts, accountNumber);
+        Notifications.displayNotificationList(cifs, cifindex, accounts, accountNumber,loans);
         int choice = 0;
         if (accounts[index].accType.equals("SavingsAccount")) {
             System.out.println("---------------------------------------------------------------\n");
@@ -185,11 +185,11 @@ public class Main {
                             if (checkAcc) {
                                 if (LoginUtilities.login(accounts, ut.numAccounts, accountNumber, keyboard)) {
                                     do {
-                                        choice = menu(cifs, cifindex, accounts, accountNumber,
+                                        choice = menu(cifs, cifindex, accounts,loans, accountNumber,
                                                 LoginUtilities.searchAccount(
                                                         accounts, ut.numAccounts, accountNumber),
                                                 keyboard);
-                                        Notifications.autoPayLoanEMI(accounts, accountNumber, loans);
+                                        //Notifications.autoPayLoanEMI(accounts, accountNumber, loans);
                                         if (choice == 1) {
                                             ad.doDepositUI(cifs, cifindex, accounts, ut.numAccounts,
                                                     accountNumber,

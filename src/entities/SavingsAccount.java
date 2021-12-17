@@ -49,10 +49,10 @@ public class SavingsAccount extends Account {
         return 0;
     }
 
-    //this function is used to count days between lastWithdrawDate and present date
+    // this function is used to count days between lastWithdrawDate and present date
     public long countdays(LocalDate lastwithdrawDate) {
         if (!lastwithdrawDate.equals(LocalDate.now())) {
-            System.out.println(lastwithdrawDate + " to " + LocalDate.now()+" interest is added.");
+            System.out.println(lastwithdrawDate + " to " + LocalDate.now() + " interest is added.");
             long days = lastwithdrawDate.until(LocalDate.now(), ChronoUnit.DAYS);
             return days;
         }
@@ -81,13 +81,25 @@ public class SavingsAccount extends Account {
             System.out.println("Hi " + cifs[cifindex].getUsername());
             balance += amount;
             System.out.printf("Amount %.2f deposited%n", amount);
-            //System.out.printf("Current Balance is: %.2f%n", balance);
+            // System.out.printf("Current Balance is: %.2f%n", balance);
             setLastWithdrawDate();
         } else
             System.out.println("A negative amount cannot be deposited");
     }
 
-    //this function is used to display Notifications like low minimum Balance
+    //this is used to update interest for savings account
+    public void updateInterest(CIF cifs[], int cifindex, long accountNumber, int index, Account accounts[]) {
+        double bal = calcInterest(cifs, cifindex, accounts, index, lastWithdrawdate);
+        if (bal != 0) {
+            miniStatements
+                    .add(new MiniStatement("Savings interest", LocalDate.now(), +bal));
+            bal += getBalance();
+            setBalance(bal);
+            setLastWithdrawDate();
+        }
+    }
+
+    // this function is used to display Notifications like low minimum Balance
     public void displayNotifications(Account accounts[], int index) {
         if (accounts[index].balanceType.equals("MinimumBalanceAccount")) {
             if (accounts[index].balance < 2000) {

@@ -1,5 +1,5 @@
 package src.utils;
-//this class is Single ton class. Because instead of declaring  variables as static we can use Single class Variables.
+//this class is Single ton class. Because instead of declaring  variables as static we can use Single ton class Variables.
 public class Utilties {
     public int findex = 1;
     public int lindex = 2;

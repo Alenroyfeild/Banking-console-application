@@ -63,8 +63,6 @@ public abstract class Account {
         return false;
     }
 
-    LocalDate date;
-
     public void setLastWithdrawDate() {
         this.lastWithdrawdate = LocalDate.now();
     }
